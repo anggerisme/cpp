@@ -44,3 +44,23 @@ int main(){
     arr2(arr, size);
 }
 ```
+
+# Sorting Arrays
+
+Sorting arrays dapat dilakukan dengan `std::sort` (_built-in function_) yang sudah disediakan di file header `algorithm` bawaan c++ 11.
+
+```c++
+sort(array.begin(), array.end())
+atau bisa ditulis
+sort(begin(array), end(array));
+```
+
+Keterangan :
+
+1. Parameter pertama array.begin() akan men-_set_ pointer ke elemen pertama dari array yang ingin di urutkan. Jadi pengurutan dimulai dari sana. Jika kita ingin pengurutan dimulai dari elemen kedua maka tinggal tambahkan satu/berapapun
+
+```c++
+sort(array.begin()+1, array.end()+SIZE)
+```
+
+`array.SIZE` artinya kita memberitahu compiler bahwa pengurutan sampai pada akhir dari array.
