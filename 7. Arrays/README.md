@@ -64,3 +64,11 @@ sort(array.begin()+1, array.end()+SIZE)
 ```
 
 `array.SIZE` artinya kita memberitahu compiler bahwa pengurutan sampai pada akhir dari array.
+
+# Binary Search
+
+Adalah metode untuk mencari elemen dalam sebuah _sorted array_ secara berulang membagi 2 array dan mencari di setengahnya. Metode ini dimulai dengan membagi array dalam 2 bagian, jika data yang dimasukkan (yang ingin dicari) lebih besar dari salah satu bagian setengah itu maka akan di pilih setengah yang besar itu jika tidak maka setengah yang lain akan dipertimbangkan.
+
+## binary_search()
+
+Built in function di c++ yang digunakan untuk mengecheck apakah elemen di dalam array [first, last] sama dengan elemen yang ingin dicari. `binary_search()` akan mengembalikan nilai `true` jika ditemukan, dan `false` jika tidak ditemukan.
