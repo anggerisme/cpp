@@ -148,12 +148,40 @@ int main(){
 Ouput :
 2
 2
+```
 
+## Implementasi static
 
-class Something {
-public:
-    static int s_value; // declares the static member variable
+```c++
+class generatorID{
+    private:
+        static int number_generator;
+        int member_ID;
+
+    public:
+        generatorID(){
+            member_ID = number_generator++;
+        }
+
+        int getID() const{
+            return member_ID;
+        }
 };
 
-int Something::s_value{ 1 };
+int generatorID::number_generator = 1;
+
+int main(){
+    generatorID satu;
+    generatorID dua;
+    generatorID tiga;
+
+    cout << satu.getID() << endl;
+    cout << dua.getID() << endl;
+    cout << tiga.getID() << endl;
+}
+
 ```
+
+Saat pertama kali sebuah objek dibuat otomatis konstruktor akan dipanggil sehingga perintah di dalam body konstruktor tersebut akan dijalankan, yang mana perintah tersebut menginisialisasi nilai dari `member_ID` dengan meng-_increamentya_ yang awalnya satu jadi 2, 3 dan seterusnya setiap kali konstruktor itu dipanggil oleh tiap tiap objek baru yang dibuat.
+
+Lihat, bahwa kita bisa mendeklarasikan dan menginisialisasi nilai dari static member di dalam private scope
