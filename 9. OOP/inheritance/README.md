@@ -33,3 +33,37 @@ int main(){
 }
 
 ```
+
+# Mengakses member melalui function
+
+Kita bisa mengakses data member dari suatu class dengan menggunakan function yang menerima Object (_instance of class_) sebagi argumenya, lalu argumen inilah yang akan digunakan untuk mengakses suatu class.
+
+```c++
+class Ayah{
+    protected:
+        string namaAyah;
+    public:
+        Ayah(string nama){
+            namaAyah = nama;
+        }
+        void show(){
+            cout << "Nama Ayah : " << namaAyah << endl;
+        }
+};
+
+class Anak: public Ayah{
+    public:
+        Anak(string nama) : Ayah(nama){}
+};
+
+void siapaNamaAyah(Ayah p){
+    p.show();
+}
+
+int main(){
+    Anak Andi("Padhika");
+    siapaNamaAyah(Andi);
+}
+```
+
+Function `siapaNamaAyah()` merupakan function biasa yang mengcopy object `Andi` ke dalam object `p` sehingga Object `p` memiliki akses terhadap class `Ayah` sebagaimana object `Andi`.
