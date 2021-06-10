@@ -67,3 +67,36 @@ int main(){
 ```
 
 Function `siapaNamaAyah()` merupakan function biasa yang mengcopy object `Andi` ke dalam object `p` sehingga Object `p` memiliki akses terhadap class `Ayah` sebagaimana object `Andi`.
+
+# Call & Pass argument ke base constructor from sub-classes
+
+Passing argumen dan memanggil base constructor (dari main Class) dapat dilakukan hanya melalui sub-class (_derived clas_).
+
+```c++
+class Ayah{
+    protected:
+        string namaAyah;
+
+        Ayah(string nama){
+            namaAyah = nama;
+            cout << "Nama Ayah : " << namaAyah << endl;
+        }
+};
+
+class Anak: private Ayah{
+    public:
+        Anak(string nama) : Ayah(nama){}
+};
+
+int main(){
+    Anak Andi("Padhika");
+}
+```
+
+Di main() Kita membuat objek `Andi` yang sekaligus passing nilai ke constructor milik `Anak`. Kemudian nilai/value argument `padhika` ini di kirim ke base constructor milik main Class `Ayah`.
+
+```c++
+Anak(string nama) : Ayah(nama){}
+```
+
+Kemudian dari sinilah Constructor milik class Ayah mendapatkan argumen. Konsep ini mirip seperti delegating constructor.
