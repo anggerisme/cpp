@@ -31,3 +31,44 @@ int main(){
     cout << Andi.name << endl;
 }
 ```
+
+# Urutan eksekusi constructor dan destructor di inheritance
+
+Pada saat sebuah objek dibuat dari sub-class (_derived class_) maka secara otomatis sebuah constructor akan dipanggil diikuti dengan destructor sesaat setelah constructor _out of the scope_.
+
+```c++
+class Person{
+    public:
+        Person(){
+            cout << "Constructor dari class Person" << endl;
+        }
+        ~Person(){
+            cout << "Destructor dari class Person" << endl;
+        }
+};
+
+class Student: Person{
+    public:
+        Student(){
+            cout << "Constructor dari class Student" << endl;
+        }
+        ~Student(){
+            cout << "Destructor dari class Student" << endl;
+        }
+
+};
+
+int main(){
+    Student Andi;
+}
+```
+
+```c++
+Output :
+Constructor dari class Person
+Constructor dari class Student
+Destructor dari class Student
+Destructor dari class Person
+```
+
+Kode diatas menunjukkan bahwa Constructor dari class Parent akan dieksekusi terlebih dahulu kemudian diikuti Constructor dari sub-Class, tetapi untuk destructor akan terlebih dahulu dieksekusi setelah constructor dari sub-class tersebut _out of the scope_ kemudian diakhiri dengan Destructor dari class Parent.
